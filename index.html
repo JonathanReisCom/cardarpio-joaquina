@@ -42,9 +42,9 @@
             <div class="pswp__counter"></div>
 
             <!-- <button class="pswp__button pswp__button--close" title="Close (Esc)"></button> -->
-            <button class="pswp__button pswp__button--share" title="Share"></button>
-            <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-            <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+            <button class="pswp__button pswp__button--share" title="Compartilhar"></button>
+            <button class="pswp__button pswp__button--fs" title="Fullscreen"></button>
+            <button class="pswp__button pswp__button--zoom" title="Zoom"></button>
 
             <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
             <!-- element will get class pswp__preloader--active when preloader is running -->
@@ -61,8 +61,8 @@
             <div class="pswp__share-tooltip"></div>
           </div>
 
-          <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-          <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+          <button class="pswp__button pswp__button--arrow--left" title="Anterior (arrow left)"></button>
+          <button class="pswp__button pswp__button--arrow--right" title="Proximo (arrow right)"></button>
 
           <div class="pswp__caption">
             <div class="pswp__caption__center"></div>
@@ -75,8 +75,6 @@
   <script>
     let pswpElement = document.querySelectorAll('.pswp')[0];
 
-    // build items array
-
     let items = [
       { src: './2020-06-20/menu pag 1-01.jpg', w: 596, h: 842 },
       { src: './2020-06-20/menu pag 2-01.jpg', w: 596, h: 842 },
@@ -85,16 +83,28 @@
       { src: './2020-06-20/menu pag 5-01.jpg', w: 596, h: 842 },
     ];
 
-    // define options (if needed)
     let options = {
-      // optionName: 'option value'
-      // for example:
-      index: 0, // start at first slide
+      index: 0,
       escKey: false,
       pinchToClose: false,
       closeOnVerticalDrag: false,
       closeOnScroll: false,
       tapToClose: false,
+      history: false,
+      shareButtons: [
+        { id: 'whatsapp', label: 'Compartilhar no WhatsApp', url: 'whatsapp://send?text={{url}}' },
+        {
+          id: 'facebook',
+          label: 'Compartilhar no Facebook',
+          url: 'https://www.facebook.com/sharer/sharer.php?u={{url}}',
+        },
+        {
+          id: 'twitter',
+          label: 'Compartilhar no Twitter',
+          url: 'https://twitter.com/intent/tweet?text={{text}}&url={{url}}',
+        },
+        { id: 'download', label: 'Fazer download da imagem', url: '{{raw_image_url}}', download: true },
+      ],
     };
 
     // Initializes and opens PhotoSwipe
